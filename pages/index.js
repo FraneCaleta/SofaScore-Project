@@ -1,16 +1,19 @@
 import ReusableHead from "../components/layout/ReusableHead";
 import useSWR from "swr";
-import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { StyledContainer } from "../components/styles/Container.styled";
 import { StyledMain } from "../components/styles/Main.styled";
 import { StyledGrid } from "../components/styles/Grid.styled";
 import { StyledCard } from "../components/styles/Card.styled";
+import { getDateToday } from "../utils/date";
+
+const DATE_TODAY = getDateToday;
+const OFFSET = 7200;
 
 export default function Home() {
   const fetcher = async () => {
     const response = await fetch(
-      "https://api.sofascore.com/api/v1/sport/football/2022-06-12/7200/categories"
+      `https://api.sofascore.com/api/v1/sport/football/${DATE_TODAY}/${OFFSET}/categories`
     );
     return await response.json();
   };

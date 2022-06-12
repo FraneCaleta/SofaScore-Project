@@ -1,7 +1,7 @@
-export const todayDate = new Date().toISOString().slice(0, 10);
-export const todayDateNormal = new Date();
+export const getDateToday = new Date().toISOString().slice(0, 10);
+export const getDateTodayNormal = new Date();
 
-export function dateToISO(date) {
+export function getDateToISO(date) {
   return date.toISOString().slice(0, 10);
 }
 
@@ -11,14 +11,14 @@ export function addDays(date, days) {
   return result;
 }
 
-export function timestampToTime(timestamp) {
+export function getTimestampToTime(timestamp) {
   const milliseconds = timestamp * 1000;
   const dateObject = new Date(milliseconds);
   const humanDateFormat = dateObject.toLocaleString().slice(12, 17);
   return humanDateFormat;
 }
 
-export function timestampToDateTime(timestamp) {
+export function getTimestampToDateTime(timestamp) {
   const milliseconds = timestamp * 1000;
   const dateObject = new Date(milliseconds);
   const humanDateFormat = dateObject.toLocaleString();
