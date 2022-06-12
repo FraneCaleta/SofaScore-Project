@@ -1,6 +1,11 @@
 import ReusableHead from "../components/layout/ReusableHead";
 import useSWR from "swr";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import { StyledContainer } from "../components/styles/Container.styled";
+import { StyledMain } from "../components/styles/Main.styled";
+import { StyledGrid } from "../components/styles/Grid.styled";
+import { StyledCard } from "../components/styles/Card.styled";
 
 export default function Home() {
   const fetcher = async () => {
@@ -24,29 +29,32 @@ export default function Home() {
     );
 
     return sortedUts.map((c, i) => {
+      const sportSlug = c.category.sport.slug;
+      const categorySlug = c.category.slug;
       return (
-        // eslint-disable-next-line @next/next/no-html-link-for-pages
-        <a key={i} href="/" className={styles.card}>
-          <h2>
-            {c.category.name} {c.uniqueTournamentIds.length} &rarr;
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <StyledCard key={i}>
+          <Link href={`/${sportSlug}/${categorySlug}`}>
+            <h2>
+              {c.category.name} {c.uniqueTournamentIds.length}
+            </h2>
+            {/* <p>Find in-depth information about Next.js features and API.</p> */}
+          </Link>
+        </StyledCard>
       );
     });
   };
 
   return (
-    <div className={styles.container}>
+    <StyledContainer>
       <ReusableHead
-        title="SofaScore: The Fastest Football Scores and Live Score for 2022"
+        title="SofaScore: The Fastest Football Scores and Live Score"
         description="Follow live results, statistics, league tables, fixtures and videos"
         keywords="Football, livescore, live scores, sofascore, results, sofa score"
       />
 
-      <main className={styles.main}>
-        <div className={styles.grid}>{handleData()}</div>
-      </main>
-    </div>
+      <StyledMain>
+        <StyledGrid>{handleData()}</StyledGrid>
+      </StyledMain>
+    </StyledContainer>
   );
 }
