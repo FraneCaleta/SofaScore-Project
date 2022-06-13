@@ -13,3 +13,17 @@ export const fetchCategories = async (sport, date, offset) => {
 
   return data;
 };
+
+export const fetchTeamImage = async (teamId) => {
+  try {
+    const res = await fetch(`${baseURL}/team/${teamId}/image`);
+
+    if (res.status > 399) {
+      throw Error(`Error with SofaScore api - (${res.status})`);
+    }
+
+    return res.json();
+  } catch (error) {
+    throw Error(`Error with SofaScore api - (${error})`);
+  }
+};

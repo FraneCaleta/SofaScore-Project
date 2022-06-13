@@ -1,4 +1,6 @@
+import Link from "next/link";
 import useSWR from "swr";
+import FlexCard from "../../../components/layout/FlexCard";
 import ReusableHead from "../../../components/layout/ReusableHead";
 import { StyledContainer } from "../../../components/styles/Container.styled";
 import {
@@ -20,8 +22,6 @@ export async function getServerSideProps(context) {
 }
 
 const Category = (props) => {
-  const categoryNameUpperCase =
-    props.category.charAt(0).toUpperCase() + props.category.slice(1);
   const fetcher = async () => {
     const response = await fetch(
       `${BASE_API}/category/${props.id}/scheduled-events/${DATE_TODAY}`
@@ -38,6 +38,8 @@ const Category = (props) => {
     (a, b) => b.tournament.priority - a.tournament.priority
   );
 
+  const categoryNameUpperCase =
+    props.category.charAt(0).toUpperCase() + props.category.slice(1);
   if (sortedData) {
     categoryNameUpperCase = sortedData[0].tournament.category.name;
   }
@@ -49,16 +51,33 @@ const Category = (props) => {
       }
 
       const tournamentName = item.tournament.name;
-      const { homeTeam, awayTeam, startTimestamp } = item;
+      const { homeTeam, awayTeam, startTimestamp, homeScore, awayScore, id } =
+        item;
+      if (
+        Object.keys(homeScore).length === 0 ||
+        Object.keys(awayScore).length === 0
+      ) {
+        homeScore = "";
+        awayScore = "";
+      } else {
+        homeScore = homeScore.display;
+        awayScore = awayScore.display;
+      }
       const startTime = getTimestampToTime(startTimestamp);
       return (
         <div key={i}>
-          <h3>{tournamentName}</h3>
-          <p>
-            {homeTeam.name} &emsp; <br />
-            {awayTeam.name}&emsp; 1<br />
-            {startTime}
-          </p>
+          <FlexCard
+            tournamentName={tournamentName}
+            time={startTime}
+            status={item.status.description}
+            homeTeam={homeTeam.name}
+            awayTeam={awayTeam.name}
+            homeScore={homeScore}
+            awayScore={awayScore}
+            homeTeamId={homeTeam.id}
+            awayTeamId={awayTeam.id}
+            eventId={id}
+          />
           <hr />
         </div>
       );

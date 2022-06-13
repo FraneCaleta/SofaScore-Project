@@ -39,22 +39,25 @@ export default function Home() {
       const sportSlug = c.category.sport.slug;
       const categorySlug = c.category.slug;
       return (
-        <StyledCard key={i}>
-          <Link
-            href={{
-              pathname: `/${sportSlug}/${categorySlug}`,
-              query: {
-                id: c.category.id,
-              },
-            }}
-            // to remove id from query but still have it in router
-            // as={`/${sportSlug}/${categorySlug}`}
-          >
-            <h2>
-              {c.category.name} {c.uniqueTournamentIds.length}
-            </h2>
-          </Link>
-        </StyledCard>
+        <Link
+          key={i}
+          href={{
+            pathname: `/${sportSlug}/${categorySlug}`,
+            query: {
+              id: c.category.id,
+            },
+          }}
+          // to remove id from query but still have it in router
+          // as={`/${sportSlug}/${categorySlug}`}
+        >
+          <a>
+            <StyledCard>
+              <h2>
+                {c.category.name} ({c.totalEvents})
+              </h2>
+            </StyledCard>
+          </a>
+        </Link>
       );
     });
   };
