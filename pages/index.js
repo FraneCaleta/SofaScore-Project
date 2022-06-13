@@ -41,7 +41,7 @@ export default function Home() {
               },
             }}
             // to remove id from query but still have it in router
-            as={`/${sportSlug}/${categorySlug}`}
+            // as={`/${sportSlug}/${categorySlug}`}
           >
             <h2>
               {c.category.name} {c.uniqueTournamentIds.length}
