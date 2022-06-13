@@ -38,6 +38,7 @@ const FlexCard = ({
       alt="Away team logo"
     />
   );
+
   return (
     <>
       <Link href={`/${eventId}`}>

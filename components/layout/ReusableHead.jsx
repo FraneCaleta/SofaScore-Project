@@ -1,4 +1,3 @@
-import logo from "../../public/sofascore-icon.webp";
 import Head from "next/head";
 
 export default function ReusableHead({ title, description, keywords }) {
