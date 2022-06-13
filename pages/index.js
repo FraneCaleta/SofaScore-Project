@@ -5,15 +5,12 @@ import { StyledContainer } from "../components/styles/Container.styled";
 import { StyledMain } from "../components/styles/Main.styled";
 import { StyledGrid } from "../components/styles/Grid.styled";
 import { StyledCard } from "../components/styles/Card.styled";
-import { getDateToday } from "../utils/date";
-
-const DATE_TODAY = getDateToday;
-const OFFSET = 7200;
+import { DATE_TODAY, BASE_API, OFFSET } from "../utils/constants";
 
 export default function Home() {
   const fetcher = async () => {
     const response = await fetch(
-      `https://api.sofascore.com/api/v1/sport/football/${DATE_TODAY}/${OFFSET}/categories`
+      `${BASE_API}/sport/football/${DATE_TODAY}/${OFFSET}/categories`
     );
     return await response.json();
   };
@@ -36,11 +33,19 @@ export default function Home() {
       const categorySlug = c.category.slug;
       return (
         <StyledCard key={i}>
-          <Link href={`/${sportSlug}/${categorySlug}`}>
+          <Link
+            href={{
+              pathname: `/${sportSlug}/${categorySlug}`,
+              query: {
+                id: c.category.id,
+              },
+            }}
+            // to remove id from query but still have it in router
+            as={`/${sportSlug}/${categorySlug}`}
+          >
             <h2>
               {c.category.name} {c.uniqueTournamentIds.length}
             </h2>
-            {/* <p>Find in-depth information about Next.js features and API.</p> */}
           </Link>
         </StyledCard>
       );
