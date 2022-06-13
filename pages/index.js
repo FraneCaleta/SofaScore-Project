@@ -5,7 +5,14 @@ import { StyledContainer } from "../components/styles/Container.styled";
 import { StyledMain } from "../components/styles/Main.styled";
 import { StyledGrid } from "../components/styles/Grid.styled";
 import { StyledCard } from "../components/styles/Card.styled";
-import { DATE_TODAY, BASE_API, OFFSET } from "../utils/constants";
+import {
+  DATE_TODAY,
+  BASE_API,
+  OFFSET,
+  TITLE,
+  DESCRIPTION,
+  KEYWORDS,
+} from "../utils/constants";
 
 export default function Home() {
   const fetcher = async () => {
@@ -55,9 +62,9 @@ export default function Home() {
   return (
     <StyledContainer>
       <ReusableHead
-        title="SofaScore: The Fastest Football Scores and Live Score"
-        description="Follow live results, statistics, league tables, fixtures and videos"
-        keywords="Football, livescore, live scores, sofascore, results, sofa score"
+        title={TITLE}
+        description={DESCRIPTION}
+        keywords={KEYWORDS}
       />
 
       <StyledMain>

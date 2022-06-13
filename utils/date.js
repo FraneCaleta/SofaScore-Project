@@ -30,3 +30,12 @@ export function addOffsetToDate(offset) {
   const date = new Date(now.getTime() + offset);
   return date;
 }
+
+export function filterTimestamps(timestamp) {
+  const dateTodayISO = new Date().toISOString().slice(0, 10);
+  const milliseconds = timestamp * 1000;
+  const dateObject = new Date(milliseconds);
+  const dateFromTimestamp = dateObject.toISOString().slice(0, 10);
+
+  return dateTodayISO === dateFromTimestamp ? true : false;
+}
