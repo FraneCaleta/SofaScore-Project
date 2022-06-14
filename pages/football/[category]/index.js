@@ -1,4 +1,3 @@
-import Link from "next/link";
 import useSWR from "swr";
 import FlexCard from "../../../components/layout/FlexCard";
 import ReusableHead from "../../../components/layout/ReusableHead";
@@ -10,6 +9,7 @@ import {
   KEYWORDS,
 } from "../../../utils/constants";
 import { filterTimestamps, getTimestampToTime } from "../../../utils/date";
+import MainHeader from "../../../components/layout/MainHeader";
 
 export async function getServerSideProps(context) {
   console.log(context.query);
@@ -32,7 +32,6 @@ const Category = (props) => {
 
   if (error) return "An error has occurred";
   if (!data) return "Loading.. .";
-  console.log(data);
 
   const sortedData = data.events.sort(
     (a, b) => b.tournament.priority - a.tournament.priority
@@ -85,17 +84,20 @@ const Category = (props) => {
   };
 
   return (
-    <StyledContainer>
-      <ReusableHead
-        title={`SofaScore: ${categoryNameUpperCase}`}
-        description={DESCRIPTION}
-        keywords={KEYWORDS}
-      />
-      <h1>
-        {categoryNameUpperCase} ({DATE_TODAY})
-      </h1>
-      {handleData()}
-    </StyledContainer>
+    <>
+      <MainHeader />
+      <StyledContainer>
+        <ReusableHead
+          title={`SofaScore: ${categoryNameUpperCase}`}
+          description={DESCRIPTION}
+          keywords={KEYWORDS}
+        />
+        <h1>
+          {categoryNameUpperCase} ({DATE_TODAY})
+        </h1>
+        {handleData()}
+      </StyledContainer>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import MainHeader from "../../components/layout/MainHeader";
 import useSWR from "swr";
 import EventStatisticsRow from "../../components/layout/EventStatisticsRow";
 import ReusableHead from "../../components/layout/ReusableHead";
@@ -26,14 +26,17 @@ const Event = ({ eventId }) => {
   console.log(data);
 
   return (
-    <StyledContainer>
-      <ReusableHead
-        title={"SofaScore statistics"}
-        description={DESCRIPTION}
-        keywords={KEYWORDS}
-      />
-      <EventStatisticsRow data={data} />
-    </StyledContainer>
+    <>
+      <MainHeader />
+      <StyledContainer>
+        <ReusableHead
+          title={"SofaScore statistics"}
+          description={DESCRIPTION}
+          keywords={KEYWORDS}
+        />
+        <EventStatisticsRow data={data} />
+      </StyledContainer>
+    </>
   );
 };
 

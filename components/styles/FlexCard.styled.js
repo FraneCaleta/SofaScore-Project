@@ -7,7 +7,6 @@ export const MainContainer = styled.div`
     color: #0070f3;
     border-color: #0070f3;
   }
-
   cursor: pointer;
 `;
 
