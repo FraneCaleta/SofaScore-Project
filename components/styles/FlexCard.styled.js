@@ -1,13 +1,26 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   &:hover,
   &:focus,
   &:active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: #3700b3;
+    border-color: #3700b3;
   }
+
   cursor: pointer;
+
+  .dark & {
+    border-color: #bb86fc;
+    color: #bb86fc;
+  }
+
+  .dark &:hover,
+  .dark &:focus,
+  .dark &:active {
+    color: #03dac6;
+    border-color: #03dac6;
+  }
 `;
 
 export const EventRow = styled.div`
@@ -60,6 +73,10 @@ export const Separator = styled.div`
   min-height: 35px;
   border-left: 1px solid rgba(0, 12, 24, 0.14);
   margin: 0px 24px;
+
+  .dark & {
+    border-left: 1px solid whitesmoke;
+  }
 `;
 
 export const StyledFlexContainer = styled.div`

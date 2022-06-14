@@ -92,7 +92,7 @@ const Category = (props) => {
           description={DESCRIPTION}
           keywords={KEYWORDS}
         />
-        <h1>
+        <h1 style={{ color: "#3700b3" }}>
           {categoryNameUpperCase} ({DATE_TODAY})
         </h1>
         {handleData()}

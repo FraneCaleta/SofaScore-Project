@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   width: 1000px;
@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const StyledHeader = styled.header`
-  background-color: rgb(0, 87, 163);
+  background-color: #3700b3;
   color: white;
 `;
 

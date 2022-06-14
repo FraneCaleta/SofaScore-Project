@@ -1,8 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
   color: inherit;
   text-decoration: none;
@@ -16,8 +20,20 @@ export const StyledCard = styled.div`
   &:hover,
   &:focus,
   &:active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: #3700b3;
+    border-color: #3700b3;
+  }
+
+  .dark &:hover,
+  .dark &:focus,
+  .dark &:active {
+    color: #03dac6;
+    border-color: #03dac6;
+  }
+
+  .dark & {
+    border-color: #bb86fc;
+    color: #bb86fc;
   }
 
   h2 {
