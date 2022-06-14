@@ -11,7 +11,7 @@ import { useCallback, useState } from "react";
 import { addDays, getDateTodayNormal, getDateToISO } from "../../utils/date";
 import * as S from "../styles/DateHeader.styled";
 
-const DateHeader = React.memo((props) => {
+const DateHeader = React.memo(() => {
   const [date, setDate] = useState(getDateTodayNormal);
 
   const handleDate = useCallback(
@@ -21,7 +21,6 @@ const DateHeader = React.memo((props) => {
       } else {
         setDate(addDays(date, day));
       }
-      props.passData(date);
     },
     [date]
   );

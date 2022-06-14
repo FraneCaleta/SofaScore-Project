@@ -9,7 +9,7 @@ const Header = React.memo(() => {
   const [isDarkMode, setIsDarkMode] = useState(() => true);
 
   function toggleTheme() {
-    var element = document.getElementsByTagName("body")[0];
+    let element = document.getElementsByTagName("body")[0];
     element.classList.toggle("dark");
     setIsDarkMode(!isDarkMode);
   }
