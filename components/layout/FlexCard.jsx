@@ -1,12 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { BASE_API } from "../../utils/constants";
-import {
-  MainFlexContainer,
-  StyledFlexContainer,
-  StyledFlexItem,
-  StyledMiddleFlexItem,
-} from "../styles/FlexCard.styled";
+import * as S from "../styles/FlexCard.styled";
 
 const FlexCard = ({
   tournamentName,
@@ -40,29 +35,34 @@ const FlexCard = ({
   );
 
   return (
-    <>
-      <Link href={`/${eventId}`}>
-        <a>
-          <MainFlexContainer>
-            <h3>{tournamentName}</h3>
-            <StyledFlexContainer>
-              <StyledFlexItem>{time}</StyledFlexItem>
-              <StyledMiddleFlexItem>
-                {homeTeamImage} {homeTeam}
-              </StyledMiddleFlexItem>
-              <StyledFlexItem>{homeScore}</StyledFlexItem>
-            </StyledFlexContainer>
-            <StyledFlexContainer>
-              <StyledFlexItem>{status}</StyledFlexItem>
-              <StyledMiddleFlexItem>
-                {awayTeamImage} {awayTeam}
-              </StyledMiddleFlexItem>
-              <StyledFlexItem>{awayScore}</StyledFlexItem>
-            </StyledFlexContainer>
-          </MainFlexContainer>
-        </a>
-      </Link>
-    </>
+    <Link href={`/${eventId}`}>
+      <S.MainContainer>
+        <h3>{tournamentName}</h3>
+        <S.EventRow>
+          <S.EventContainer>
+            <S.Time>
+              <span>{time}</span>
+              <span>{status}</span>
+            </S.Time>
+            <S.Separator />
+            <S.Event>
+              <S.Team>
+                {homeTeamImage}
+                <div>{homeTeam}</div>
+              </S.Team>
+              <S.Team>
+                {awayTeamImage}
+                <div>{awayTeam}</div>
+              </S.Team>
+            </S.Event>
+          </S.EventContainer>
+          <S.Score>
+            <span>{homeScore}</span>
+            <span>{awayScore}</span>
+          </S.Score>
+        </S.EventRow>
+      </S.MainContainer>
+    </Link>
   );
 };
 

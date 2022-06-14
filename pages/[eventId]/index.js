@@ -32,7 +32,7 @@ const Event = ({ eventId }) => {
         description={DESCRIPTION}
         keywords={KEYWORDS}
       />
-      <EventStatisticsRow />
+      <EventStatisticsRow data={data} />
     </StyledContainer>
   );
 };

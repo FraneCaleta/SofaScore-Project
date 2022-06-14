@@ -13,6 +13,7 @@ import {
   DESCRIPTION,
   KEYWORDS,
 } from "../utils/constants";
+import MainHeader from "../components/layout/MainHeader";
 
 export default function Home() {
   const fetcher = async () => {
@@ -47,8 +48,6 @@ export default function Home() {
               id: c.category.id,
             },
           }}
-          // to remove id from query but still have it in router
-          // as={`/${sportSlug}/${categorySlug}`}
         >
           <a>
             <StyledCard>
@@ -63,16 +62,19 @@ export default function Home() {
   };
 
   return (
-    <StyledContainer>
-      <ReusableHead
-        title={TITLE}
-        description={DESCRIPTION}
-        keywords={KEYWORDS}
-      />
+    <>
+      <MainHeader />
+      <StyledContainer>
+        <ReusableHead
+          title={TITLE}
+          description={DESCRIPTION}
+          keywords={KEYWORDS}
+        />
 
-      <StyledMain>
-        <StyledGrid>{handleData()}</StyledGrid>
-      </StyledMain>
-    </StyledContainer>
+        <StyledMain>
+          <StyledGrid>{handleData()}</StyledGrid>
+        </StyledMain>
+      </StyledContainer>
+    </>
   );
 }
