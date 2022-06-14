@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFireFlameCurved } from "@fortawesome/free-solid-svg-icons";
 import * as S from "../styles/MainHeader.styled";
 
 const Header = React.memo(() => {
@@ -24,8 +26,20 @@ const Header = React.memo(() => {
               alt="SofaScore"
             />
           </Link>
+          <S.LiveGamesContainer>
+            <Link href={"/live"}>
+              <a>
+                <FontAwesomeIcon
+                  icon={faFireFlameCurved}
+                  color="red"
+                  size="lg"
+                />{" "}
+                LIVE
+              </a>
+            </Link>
+          </S.LiveGamesContainer>
           <S.FavoritesContainer>
-            <Link href={"/favorites/"}>Favorites</Link>
+            <Link href={"/favorites/"}>Favorites </Link>
             <DarkModeToggle
               onChange={toggleTheme}
               checked={isDarkMode}

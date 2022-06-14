@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   width: 1000px;
@@ -44,6 +44,23 @@ export const FavoritesContainer = styled.div`
   @media (max-width: 350px) {
     & > * {
       margin-right: 8px;
+    }
+  }
+`;
+
+export const LiveGamesContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-left: 170px;
+  min-width: 100px;
+
+  & > * {
+    margin-right: 16px;
+  }
+
+  @media (max-width: 550px) {
+    & > * {
+      margin-right: 40px;
     }
   }
 `;
