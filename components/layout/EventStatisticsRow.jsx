@@ -8,7 +8,7 @@ const EventStatisticsRow = ({ data }) => {
         <h1>No statistics for given game</h1>
         <Link href="/">
           <a>
-            <h1>Take me back</h1>
+            <h1>Click to take you back</h1>
           </a>
         </Link>
       </>

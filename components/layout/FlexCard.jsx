@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
 import { BASE_API } from "../../utils/constants";
@@ -16,7 +17,6 @@ const FlexCard = ({
   eventId,
 }) => {
   const homeTeamImage = (
-    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={`${BASE_API}/team/${homeTeamId}/image`}
       width={19}
@@ -25,7 +25,6 @@ const FlexCard = ({
     />
   );
   const awayTeamImage = (
-    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={`${BASE_API}/team/${awayTeamId}/image`}
       width={19}
