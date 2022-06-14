@@ -1,12 +1,13 @@
-Football result tracker made by using Next.js, Styled Components and SWR.
+Football result tracker made by using Next.js, Styled Components and SWR.<br />
 SofaScore API was used for getting the latest data.
 
-## Getting Started
+## Starting the application
 
 First, install the dependencies and run the development server:
 
 ```bash
 yarn
+
 yarn dev
 ```
 
