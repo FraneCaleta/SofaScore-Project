@@ -5,10 +5,10 @@ const EventStatisticsRow = ({ data }) => {
   if (!data.statistics) {
     return (
       <>
-        <h1>No statistics for given game</h1>
+        <h1 style={{ color: "#3700b3" }}>No statistics for given game</h1>
         <Link href="/">
           <a>
-            <h1>Click to take you back</h1>
+            <h1 style={{ color: "#3700b3" }}>Click to take you back</h1>
           </a>
         </Link>
       </>

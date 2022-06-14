@@ -39,3 +39,10 @@ export function filterTimestamps(timestamp) {
 
   return dateTodayISO === dateFromTimestamp ? true : false;
 }
+
+export function timestampToDateTime(timestamp) {
+  const milliseconds = timestamp * 1000;
+  const dateObject = new Date(milliseconds);
+  const humanDateFormat = dateObject.toLocaleString();
+  return humanDateFormat;
+}

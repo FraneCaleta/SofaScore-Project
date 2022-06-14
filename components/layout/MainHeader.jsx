@@ -39,7 +39,7 @@ const Header = React.memo(() => {
             </Link>
           </S.LiveGamesContainer>
           <S.FavoritesContainer>
-            <Link href={"/favorites/"}>Favorites </Link>
+            <Link href={"/"}>Favorites </Link>
             <DarkModeToggle
               onChange={toggleTheme}
               checked={isDarkMode}
