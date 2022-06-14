@@ -7,6 +7,7 @@ import {
   BASE_API,
   DESCRIPTION,
   KEYWORDS,
+  INPROGRESS,
 } from "../../utils/constants";
 import { filterTimestamps, getTimestampToTime } from "../../utils/date";
 import MainHeader from "../../components/layout/MainHeader";
@@ -36,6 +37,8 @@ const LiveGames = () => {
       if (!filterTimestamps(item.startTimestamp)) {
         return false;
       }
+
+      if (item.status.type !== INPROGRESS) return false;
 
       const tournamentName = item.tournament.name;
       const { homeTeam, awayTeam, startTimestamp, homeScore, awayScore, id } =
@@ -80,9 +83,7 @@ const LiveGames = () => {
           description={DESCRIPTION}
           keywords={KEYWORDS}
         />
-        <h1 style={{ color: "#3700b3" }}>
-          Live Games ({DATE_TODAY})
-        </h1>
+        <h1 style={{ color: "#3700b3" }}>Live Games ({DATE_TODAY})</h1>
         {handleData()}
       </StyledContainer>
     </>
