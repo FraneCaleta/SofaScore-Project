@@ -8,7 +8,7 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useState } from "react";
-import { addDays, getDateTodayNormal, getDateToISO } from "../../utils/date";
+import { addDays, getDateTodayNormal } from "../../utils/date";
 import * as S from "../styles/DateHeader.styled";
 
 const DateHeader = React.memo(() => {

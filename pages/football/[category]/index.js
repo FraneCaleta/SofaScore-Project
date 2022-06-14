@@ -12,7 +12,6 @@ import { filterTimestamps, getTimestampToTime } from "../../../utils/date";
 import MainHeader from "../../../components/layout/MainHeader";
 
 export async function getServerSideProps(context) {
-  console.log(context.query);
   return {
     props: {
       id: context.query.id,
